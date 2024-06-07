@@ -66,4 +66,4 @@ function start(timerStatus, intervalId) {
   console.log(intervalId);
 }
 
-setTimer(2);
+setTimer(25);

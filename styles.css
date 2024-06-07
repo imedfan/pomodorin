@@ -10,17 +10,24 @@ body {
   display: grid;
   align-items: center;
   justify-content: center;
+  align-content: center;
   height: 100vh;
+  width: 100vw;
   grid-gap: 15px; 
   align-content:center;
 }
 
 #clock_block {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   #up, #down {
     font-size: 10vh;
+    font-weight: 1000;
+    margin-left: 5vh;
+    margin-right: 5vh;
+
   }
 }
 
@@ -45,21 +52,10 @@ body {
   /* margin-top: 12vh; */
 }
 
-#button_ud {
-  font-family: "Lato", sans-serif;
-  font-size: 10vh;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  margin-left: 10vh;
-  margin-right: 10vh;
-  color: #153047;
-}
 
 #button_sr {
   font-family: "Lato", sans-serif;
-  font-size: 10vh;
+
   text-align: center;
   display: flex;
   align-items: center;
@@ -67,25 +63,57 @@ body {
   margin-left: 10vh;
   margin-right: 10vh;
   color: #153047;
+  /* #start, #reset {
+    margin-top: 4vh;
+    margin-left: 2vh;
+    margin-right: 2vh;
+    border-width: thin;
+    border-style: solid;
+    border-color: #8bcaff;
+    background-color: #8bcaff;
+    border-radius: 12px;
+    width: 12vh;
+    height: 8vh;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+  } */
 }
 
-#start{
+#start, #stop {
+  font-size: 5vh;
+  margin-top: 4vh;
+  margin-left: 4vh;
+  margin-right: 2vh;
   border-width: thin;
   border-style: solid;
   border-color: #8bcaff;
   background-color: #8bcaff;
-  border-radius: 8px;
-  /* width: 40px; */
-
+  border-radius: 12px;
+  width: 12vh;
+  height: 8vh;
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  margin-left: 15vh;
 }
 
+
 #reset {
+  font-size: 2.5vh;
+  margin-top: 4vh;
+  margin-left: 2vh;
+  margin-right: 2vh;
   border-width: thin;
   border-style: solid;
-  border-color: #d9eeff;
-  background-color: #d9eeff;
-  border-radius: 8px;
-  /* width: 40px; */
+  border-color: #8bcaff;
+  background-color: #8bcaff;
+  border-radius: 12px;
+  width: 6vh;
+  height: 4vh;
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
 }
 
 .no-select {
