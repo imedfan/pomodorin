@@ -34,9 +34,9 @@ function reset(timerStatus) {
 function stop(intervalId){
   clearInterval(window.intervalId);
   setTimer();
-  let buttonStop = document.getElementById("start");
+  let buttonStop = document.getElementById("start_btn");
   buttonStop.setAttribute('onclick','start()');
-  buttonStop.innerHTML = "▶";
+  buttonStop.setAttribute('src', './resources/play_btn.png')
   window.timerStatus = false;
 }
 
@@ -51,16 +51,16 @@ function start(timerStatus, intervalId) {
     timerValue = document.getElementById("time").innerHTML;
     timerValue--;
     document.getElementById("time").innerHTML = timerValue;
-    let buttonStop = document.getElementById("start");
+    let buttonStop = document.getElementById("start_btn");
     buttonStop.setAttribute('onclick','stop()');
-    buttonStop.innerHTML = "■";
+    buttonStop.setAttribute('src', './resources/stop_btn.png')
     if (timerValue === 0) {
       clearInterval(window.intervalId);
       alert("Done!");
       setTimer();
       window.timerStatus = false;
       buttonStop.setAttribute('onclick','start()');
-      buttonStop.innerHTML = "▶";
+      buttonStop.setAttribute('src', './resources/play_btn.png')
     }
   }, 1000);
   console.log(intervalId);
