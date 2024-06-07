@@ -59,7 +59,7 @@ body {
   text-align: center;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   margin-left: 10vh;
   margin-right: 10vh;
   color: #153047;
@@ -80,7 +80,7 @@ body {
   } */
 }
 
-#start, #stop {
+/* #start, #stop {
   font-size: 5vh;
   margin-top: 4vh;
   margin-left: 4vh;
@@ -96,10 +96,19 @@ body {
   justify-content: center; 
   align-items: center; 
   margin-left: 15vh;
+} */
+
+#start_btn{
+  width: 15vh;
+  display: flex; 
 }
 
+#reset_btn {
+  width: 8vh;
+  display: flex; 
+}
 
-#reset {
+/* #reset {
   font-size: 2.5vh;
   margin-top: 4vh;
   margin-left: 2vh;
@@ -114,7 +123,7 @@ body {
   display: flex; 
   justify-content: center; 
   align-items: center; 
-}
+} */
 
 .no-select {
   -webkit-touch-callout: none;
