@@ -40,15 +40,17 @@ function setTimer(timerValue) {
 function changeSteps(){
   let defaultStep = steps.FOCUS;
   let currentlyStep = document.getElementById('changeSteps').innerHTML;
-  if (currentlyStep === steps.FOCUS) {
-    document.getElementById('changeSteps').innerHTML = steps.SHORTBREAK;
-    setTimer(stepsPeriod.SHORTBREAK);
-  } else if (currentlyStep === steps.SHORTBREAK) {
-    document.getElementById('changeSteps').innerHTML = steps.LONGBREAK;
-    setTimer(stepsPeriod.LONGBREAK);
-  } else if (currentlyStep === steps.LONGBREAK) {
-    document.getElementById('changeSteps').innerHTML = steps.FOCUS;
-    setTimer(stepsPeriod.FOCUS);
+  if (window.timerStatus == false){
+    if (currentlyStep === steps.FOCUS) {
+      document.getElementById('changeSteps').innerHTML = steps.SHORTBREAK;
+      setTimer(stepsPeriod.SHORTBREAK);
+    } else if (currentlyStep === steps.SHORTBREAK) {
+      document.getElementById('changeSteps').innerHTML = steps.LONGBREAK;
+      setTimer(stepsPeriod.LONGBREAK);
+    } else if (currentlyStep === steps.LONGBREAK) {
+      document.getElementById('changeSteps').innerHTML = steps.FOCUS;
+      setTimer(stepsPeriod.FOCUS);
+    }
   }
 }
 
