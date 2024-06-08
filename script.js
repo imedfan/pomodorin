@@ -12,6 +12,7 @@ let stepsPeriod = {
   LONGBREAK: 900,
 }
 
+
 function getKeysByValue(obj, value) {
   return Object.keys(obj).filter(key => obj[key] === value);
 }
@@ -37,18 +38,24 @@ function setTimer(timerValue) {
   }
 }
 
+function setStep(step){
+  document.getElementById('changeSteps').innerHTML = step;
+}
+
+setStep(steps.FOCUS);
+
 function changeSteps(){
   let defaultStep = steps.FOCUS;
   let currentlyStep = document.getElementById('changeSteps').innerHTML;
-  if (window.timerStatus == false){
-    if (currentlyStep === steps.FOCUS) {
-      document.getElementById('changeSteps').innerHTML = steps.SHORTBREAK;
+   if (window.timerStatus == false){
+    if (currentlyStep == steps.FOCUS) {
+      setStep(steps.SHORTBREAK);
       setTimer(stepsPeriod.SHORTBREAK);
-    } else if (currentlyStep === steps.SHORTBREAK) {
-      document.getElementById('changeSteps').innerHTML = steps.LONGBREAK;
+    } else if (currentlyStep == steps.SHORTBREAK) {
+      setStep(steps.LONGBREAK);
       setTimer(stepsPeriod.LONGBREAK);
-    } else if (currentlyStep === steps.LONGBREAK) {
-      document.getElementById('changeSteps').innerHTML = steps.FOCUS;
+    } else if (currentlyStep == steps.LONGBREAK) {
+      setStep(steps.FOCUS);
       setTimer(stepsPeriod.FOCUS);
     }
   }
