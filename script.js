@@ -24,13 +24,18 @@ function setTimer(timerValue) {
 
 function up() {
   let timerValue = document.getElementById("time").innerHTML;
-  timerValue++;
+  if (timerValue < 60) {
+    timerValue++;
+  } else {
+    alert('This goes beyond The Pomodoro technique');
+  }
+  
   document.getElementById("time").innerHTML = timerValue;
 }
 
 function down() {
   let timerValue = document.getElementById("time").innerHTML;
-  if (timerValue > 0) {
+  if (timerValue > 1) {
     timerValue--;
   }
   document.getElementById("time").innerHTML = timerValue;
