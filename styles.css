@@ -31,7 +31,7 @@ body {
   }
 }
 
-#time {
+#time, #timeSec {
   color: #153047;
   margin: 0;
   padding: 0;

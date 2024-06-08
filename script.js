@@ -1,25 +1,41 @@
 let timerStatus = false;
 let intervalId;
 
-function setTimer(timerValue) {
-  const defaultValue = 25;
+function formatNumber(number) {
+  return (number < 10) ? `0${number}` : number;
+}
 
+function setTimer(timerValue) {
+  const defaultValue = 1500;
+  let defaultMin = Math.floor(defaultValue/60);
+  let defaultSec = formatNumber(defaultValue%60);
+
+  let valueMin = Math.floor(timerValue/60);
+  let valueSec = formatNumber(timerValue%60);
+  
   if (typeof timerValue != "undefined") {
-    document.getElementById("time").innerHTML = timerValue;
+    document.getElementById("time").innerHTML = valueMin;
+    document.getElementById("timeSec").innerHTML = valueSec;
   } else {
-    document.getElementById("time").innerHTML = defaultValue;
+    document.getElementById("time").innerHTML = defaultMin;
+    document.getElementById("timeSec").innerHTML = defaultSec;
   }
 }
 
 function up() {
   let timerValue = document.getElementById("time").innerHTML;
-  timerValue++;
+  if (timerValue < 60) {
+    timerValue++;
+  } else {
+    alert('This goes beyond The Pomodoro technique');
+  }
+  
   document.getElementById("time").innerHTML = timerValue;
 }
 
 function down() {
   let timerValue = document.getElementById("time").innerHTML;
-  if (timerValue > 0) {
+  if (timerValue > 1) {
     timerValue--;
   }
   document.getElementById("time").innerHTML = timerValue;
@@ -43,17 +59,22 @@ function stop(intervalId){
 
 function start(timerStatus, intervalId) {
   let timerValue = document.getElementById("time").innerHTML;
-  // let intervalId;
+  timerValue = timerValue*60;
 
   window.intervalId = setInterval(() => {
     console.log(timerValue);
     window.timerStatus = true;
-    timerValue = document.getElementById("time").innerHTML;
+    // timerValue = document.getElementById("time").innerHTML;
     timerValue--;
-    document.getElementById("time").innerHTML = timerValue;
+    let valueMin = Math.floor(timerValue/60);
+    let valueSec = formatNumber(timerValue%60);
+    document.getElementById("time").innerHTML = valueMin;
+    document.getElementById("timeSec").innerHTML = valueSec;
+
     let buttonStop = document.getElementById("start_btn");
     buttonStop.setAttribute('onclick','stop()');
     buttonStop.setAttribute('src', './resources/stop_btn.png')
+
     if (timerValue === 0) {
       clearInterval(window.intervalId);
       alert("Done!");
@@ -62,8 +83,10 @@ function start(timerStatus, intervalId) {
       buttonStop.setAttribute('onclick','start()');
       buttonStop.setAttribute('src', './resources/play_btn.png')
     }
+
   }, 1000);
+
   console.log(intervalId);
 }
 
-setTimer(25);
+setTimer(60);
