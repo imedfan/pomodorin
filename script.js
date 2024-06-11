@@ -1,5 +1,21 @@
 let timerStatus = false;
 let intervalId;
+let steps = {
+  FOCUS: 'Focus',
+  SHORTBREAK: 'Short Break',
+  LONGBREAK: 'Long Break',
+}
+
+let stepsPeriod = {
+  FOCUS: 1500,
+  SHORTBREAK: 300,
+  LONGBREAK: 900,
+}
+
+
+function getKeysByValue(obj, value) {
+  return Object.keys(obj).filter(key => obj[key] === value);
+}
 
 function formatNumber(number) {
   return (number < 10) ? `0${number}` : number;
@@ -7,10 +23,10 @@ function formatNumber(number) {
 
 function setTimer(timerValue) {
   const defaultValue = 1500;
-  let defaultMin = Math.floor(defaultValue/60);
+  let defaultMin = formatNumber(Math.floor(defaultValue/60));
   let defaultSec = formatNumber(defaultValue%60);
 
-  let valueMin = Math.floor(timerValue/60);
+  let valueMin = formatNumber(Math.floor(timerValue/60));
   let valueSec = formatNumber(timerValue%60);
   
   if (typeof timerValue != "undefined") {
@@ -22,6 +38,30 @@ function setTimer(timerValue) {
   }
 }
 
+function setStep(step){
+  document.getElementById('changeSteps').innerHTML = step;
+}
+
+setStep(steps.FOCUS);
+
+function changeSteps(){
+  let defaultStep = steps.FOCUS;
+  let currentlyStep = document.getElementById('changeSteps').innerHTML;
+   if (window.timerStatus == false){
+    if (currentlyStep == steps.FOCUS) {
+      setStep(steps.SHORTBREAK);
+      setTimer(stepsPeriod.SHORTBREAK);
+    } else if (currentlyStep == steps.SHORTBREAK) {
+      setStep(steps.LONGBREAK);
+      setTimer(stepsPeriod.LONGBREAK);
+    } else if (currentlyStep == steps.LONGBREAK) {
+      setStep(steps.FOCUS);
+      setTimer(stepsPeriod.FOCUS);
+    }
+  }
+}
+
+//TODO: сделать через setTimer()
 function up() {
   let timerValue = document.getElementById("time").innerHTML;
   if (timerValue < 60) {
@@ -89,4 +129,4 @@ function start(timerStatus, intervalId) {
   console.log(intervalId);
 }
 
-setTimer(60);
+setTimer(1500);

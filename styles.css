@@ -17,6 +17,34 @@ body {
   align-content:center;
 }
 
+#steps_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#steps {
+  font-family: "Lato", sans-serif;
+  /* width: 11vw; */
+  height: 5vh;
+  text-align: center;
+  display: inline-flex;
+  white-space: nowrap;
+  font-size: 2.5vh;
+  align-items: center;
+  justify-content: space-evenly;
+  color: #153047;
+  font-weight: 550;
+  background-color: #d9eeff;
+  border-style: solid;
+  border-color: #3f556a;
+  border-width: 2px;
+  border-radius: 3vh;
+  #changeSteps{
+    padding: 3vh;
+  }
+}
+
 #clock_block {
   display: flex;
   flex-direction: row;
@@ -43,7 +71,7 @@ body {
 
 #clock {
   font-family: "Lato", sans-serif;
-  font-size: 20vh;
+  font-size: 21vh;
   text-align: center;
   display: grid;
   align-items: center;
