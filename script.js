@@ -130,3 +130,6 @@ function start(timerStatus, intervalId) {
 }
 
 setTimer(1500);
+
+let tg = window.Telegram.WebApp.initData.id;
+console.log(tg);
