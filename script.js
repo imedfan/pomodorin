@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.Telegram && window.Telegram.WebApp) {
     const userId1 = window.Telegram.WebApp.initDataUnsafe?.user?.id;
     console.log(`${userId1} первый user id`);
-    const userId2 - window.Telegram.WebAppUser.id;
+    const userId2 = window.Telegram.WebAppUser.id;
     console.log(`${userId2} второй userId`);
   } else {
     console.log(`don't work`);
