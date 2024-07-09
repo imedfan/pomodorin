@@ -22,7 +22,9 @@ The Pomodoro Timer is a time management tool that helps increase productivity an
 ## Running Locally
 
 1. Clone the repository
-2. Open `index.html` in your browser.
+2. `cd pomodorin`
+3. `npm install`
+4. Open `index.html` in your browser.
 
 ## Contribution
 
