@@ -12,6 +12,9 @@ The Pomodoro Timer is a time management tool that helps increase productivity an
 - Ability to customize work and break times
 - Sound notifications for session start and end
 
+## Demo
+You can see how it works in the Telegram Mini app [TomatoPulse](https://t.me/tomatopulsebot)
+
 ## How to Use
 
 1. Open `index.html` in your browser.
